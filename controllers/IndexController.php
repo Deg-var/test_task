@@ -14,16 +14,15 @@ class IndexController extends Controller {
 
 
 	public function index() {
-		$id = CProducts::getDate();
-
-		return $this->view->render($this->pageTpl, $this->pageData,['id'=>$id]);
+		$date = CProducts::getDate();
+		return $this->view->render($this->pageTpl, $this->pageData,['date'=>$date]);
 	}
 }
 
 class CProducts{
 	public static function getDate(){
 
-		$result = db::getDb();
+		$result = DB::getDb();
 		$id =  array();
 		$name = array();
 		$price = array();
@@ -41,7 +40,8 @@ class CProducts{
 			array_push ($status,$row["status"]);
 			array_push ($date,$row["date_create"]);			
 	};
-return [$id, $name, $price, $article, $quantity, $status, $date];
+	array_push($new, $id, $name, $price, $article, $quantity, $status, $date);
+	return $new;
 	
 	}
 }

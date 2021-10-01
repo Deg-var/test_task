@@ -12,8 +12,8 @@
 <main>
 <?php
 
-for($i=0;$i<=count($id);$i++){
-echo($id[$i]);
+for($i=0;$i<=count($date);$i++){
+echo($date[$id][$i]);
 }
 ?>
            
